@@ -120,7 +120,7 @@ python -m main.sensitivity --model_dir models --bit_widths 2 4 8 --no_mlflow
 
 ## 5. Details
 
-### Q1 — Training Baseline
+### Q1  Training Baseline
 
 **Data** (`src/utils.py`):
 - CIFAR-10: 50k train / 10k test images, 10 classes, 32×32 RGB.
@@ -158,7 +158,7 @@ The loss and accuracy curves show rapid convergence in the first 10 epochs, foll
 
 ---
 
-### Q2 — Custom Quantization Implementation
+### Q2  Custom Quantization Implementation
 
 **Method** (`src/quantize.py`): Manual uniform quantization written entirely from scratch.
 
@@ -178,7 +178,7 @@ The loss and accuracy curves show rapid convergence in the first 10 epochs, foll
 
 ---
 
-### Q3 — Compression Results
+### Q3  Compression Results
 
 | Run | Mode | W bits | A bits | Accuracy | Wt. Size (MB) | Wt. Ratio | Act. Ratio | Disk (MB) |
 |---|---|---|---|---|---|---|---|---|
@@ -191,10 +191,10 @@ The loss and accuracy curves show rapid convergence in the first 10 epochs, foll
 
 **Key findings:**
 - **W8/A8 PTQ** is nearly lossless (−0.08 pt).
-- **W4/A8 PTQ** drops 8.19 pt — per-tensor scale cannot resolve 4-bit weight distributions.
-- **W4/A4 PTQ** degrades further to 68.75% — 4-bit activations fail under min-max calibration for MobileNet-v2's diverse per-channel activation ranges.
+- **W4/A8 PTQ** drops 8.19 pt - per-tensor scale cannot resolve 4-bit weight distributions.
+- **W4/A4 PTQ** degrades further to 68.75% - 4-bit activations fail under min-max calibration for MobileNet-v2's diverse per-channel activation ranges.
 - **W2/A8 PTQ** collapses to random chance (10.00%).
-- **QAT W4/A8 recovers 7.94 pt** over PTQ at the same bits, reaching **94.46%** — only 0.25 pt below FP32. The STE enables the model to learn quantization-friendly weight distributions during fine-tuning.
+- **QAT W4/A8 recovers 7.94 pt** over PTQ at the same bits, reaching **94.46%** - only 0.25 pt below FP32. The STE enables the model to learn quantization-friendly weight distributions during fine-tuning.
 
 <p align="center">
   <img src="docs/PTQ_QAT_Mlflow_Chart.PNG" width="95%" />
@@ -203,9 +203,9 @@ The loss and accuracy curves show rapid convergence in the first 10 epochs, foll
 
 ---
 
-### Q4 — Compression Analysis
+### Q4  Compression Analysis
 
-**Reported configuration: QAT W4/A8** — the Pareto-optimal point balancing accuracy and compression.
+**Reported configuration: QAT W4/A8** - the Pareto-optimal point balancing accuracy and compression.
 
 | Metric | Value |
 |---|---|
