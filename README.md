@@ -1,4 +1,4 @@
-# CS6886 — Systems Engineering for Deep Learning · Assignment 2
+# CS6886:  Systems Engineering for Deep Learning | Assignment 2
 
 ## Model Compression for MobileNet-v2 on CIFAR-10
 
